@@ -10,6 +10,12 @@ target 'PlayerController' do
 
 
 
+  pod 'appcenter-core', :path => '../node_modules/appcenter'
+
+  pod 'appcenter-analytics', :path => '../node_modules/appcenter-analytics'
+
+  pod 'appcenter-crashes', :path => '../node_modules/appcenter-crashes'
+
   target 'PlayerControllerTests' do
     inherit! :complete
     # Pods for testing
