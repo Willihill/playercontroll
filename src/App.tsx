@@ -25,6 +25,7 @@ export default () => {
       Alert.alert('Instalando atualização...')
       await download.install(codePush.default.InstallMode.IMMEDIATE)
       Alert.alert('Atualização instalada...')
+      codePush.default.restartApp()
     }
   }
 
