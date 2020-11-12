@@ -16,6 +16,8 @@ target 'PlayerController' do
 
   pod 'appcenter-crashes', :path => '../node_modules/appcenter-crashes'
 
+  pod 'CodePush', :path => '../node_modules/react-native-code-push'
+
   target 'PlayerControllerTests' do
     inherit! :complete
     # Pods for testing
