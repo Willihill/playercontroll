@@ -27,10 +27,10 @@ export default () => {
         waitAlert('Baixando atualizando...')
         const download = await binVersion.download()
         waitAlert('Baixou a atualização', `appVersion: ${download?.appVersion}\nisPending: ${download?.isPending}\nfailedInstall: ${download?.failedInstall}\ndescription: ${download.description}`, 5000)
-        waitAlert('Instalando atualização...')
+        waitAlert('Instalando atualização...', '', 15000)
         await download.install(codePush.default.InstallMode.IMMEDIATE)
-        Alert.alert('Atualização instalada...')
-        setTimeout(() => codePush.default.restartApp(), 10000)
+        waitAlert('Atualização instalada...', '', 25000)
+        setTimeout(() => codePush.default.restartApp(), 35000)
       }
     )
 
