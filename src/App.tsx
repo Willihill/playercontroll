@@ -13,8 +13,6 @@ import { store, persistor } from './store'
 export default () => {
   useEffect(() => onRefreshApp(), [])
 
-  const waitAlert = (title: string, message? : string, time: number = 2000) => setTimeout(() => Alert.alert(title, message), time)
-
   const onRefreshApp = async () => {
     const deploymentKey = 'YB-Vh7yI1gr071lIMs-yCFSEliZLEhfAM7-7h'
 
@@ -23,14 +21,14 @@ export default () => {
       undefined,
       undefined,
       async (binVersion) => {
-        waitAlert('Sync finalizada', `appVersion: ${binVersion?.appVersion}\nisPending: ${binVersion?.isPending}\nfailedInstall: ${binVersion?.failedInstall}`, 5000)
-        waitAlert('Baixando atualizando...')
+        Alert.alert('Sync finalizada', `appVersion: ${binVersion?.appVersion}\nisPending: ${binVersion?.isPending}\nfailedInstall: ${binVersion?.failedInstall}`)
+        Alert.alert('Baixando atualizando...')
         const download = await binVersion.download()
-        waitAlert('Baixou a atualização', `appVersion: ${download?.appVersion}\nisPending: ${download?.isPending}\nfailedInstall: ${download?.failedInstall}\ndescription: ${download.description}`, 5000)
-        waitAlert('Instalando atualização...', '', 15000)
+        Alert.alert('Baixou a atualização', `appVersion: ${download?.appVersion}\nisPending: ${download?.isPending}\nfailedInstall: ${download?.failedInstall}\ndescription: ${download.description}`)
+        Alert.alert('Instalando atualização...')
         await download.install(codePush.default.InstallMode.IMMEDIATE)
-        waitAlert('Atualização instalada...', '', 25000)
-        setTimeout(() => codePush.default.restartApp(), 35000)
+        Alert.alert('Atualização instalada...')
+        codePush.default.restartApp()
       }
     )
 
