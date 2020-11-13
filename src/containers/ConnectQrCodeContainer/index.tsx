@@ -54,7 +54,7 @@ export default ({ navigation }: any) => {
           cameraStyle={styles.cameraStyle}
           bottomContent={
             <View style={styles.footer}>
-              <Text style={styles.message}>Leia o qr-code do servidor para conectar ou aguarde a sincronização.</Text>
+              <Text style={styles.message}>Leia o qr-code do servidor para conectar.</Text>
             </View>
           }
         />
