@@ -54,7 +54,7 @@ export default ({ navigation }: any) => {
           cameraStyle={styles.cameraStyle}
           bottomContent={
             <View style={styles.footer}>
-              <Text style={styles.message}>Leia o qr-code do servidor para conectar. Restart</Text>
+              <Text style={styles.message}>Leia o qr-code do servidor para conectar. Restart e pos Ajuste de Timeout</Text>
             </View>
           }
         />
