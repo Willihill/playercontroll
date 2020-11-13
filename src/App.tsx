@@ -21,11 +21,11 @@ export default () => {
     await codePush.default.sync(
       { deploymentKey },
       undefined,
-      (progress) => waitAlert(`Sync progress: ${progress.receivedBytes}/${progress.totalBytes}`),
+      undefined,
       async (binVersion) => {
         waitAlert('Sync finalizada', `appVersion: ${binVersion?.appVersion}\nisPending: ${binVersion?.isPending}\nfailedInstall: ${binVersion?.failedInstall}`, 5000)
         waitAlert('Baixando atualizando...')
-        const download = await binVersion.download((progress) => Alert.alert(`Download progress: ${progress.receivedBytes}/${progress.totalBytes}`))
+        const download = await binVersion.download()
         waitAlert('Baixou a atualização', `appVersion: ${download?.appVersion}\nisPending: ${download?.isPending}\nfailedInstall: ${download?.failedInstall}\ndescription: ${download.description}`, 5000)
         waitAlert('Instalando atualização...')
         await download.install(codePush.default.InstallMode.IMMEDIATE)
